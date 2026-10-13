@@ -47,12 +47,12 @@
   ],
   "sideEffects": false,
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc -p .",
-    "test": "tsx --test \"test/**/*.test.ts\"",
+    "test": "tsx --test test/*.test.ts test/core/*.test.ts",
     "live": "tsx scripts/live-check.ts",
     "smoke": "node scripts/smoke-dist.mjs",
     "prepublishOnly": "npm run typecheck && npm test && npm run build && npm run smoke",

@@ -16,7 +16,7 @@ npm install viem                 # firmar con una clave privada / wallet EVM
 npm install @stellar/stellar-sdk # pagos x402 desde una cuenta Stellar
 ```
 
-Requiere Node.js ≥ 18.17 y una instancia de [`tilcai-infrastructure`](https://github.com/TilcAI/tilcai-infrastructure) con una clave API.
+Requiere Node.js ≥ 20 y una instancia de [`tilcai-infrastructure`](https://github.com/TilcAI/tilcai-infrastructure) con una clave API.
 
 ## Empezar
 
