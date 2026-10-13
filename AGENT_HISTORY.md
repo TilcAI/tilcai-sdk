@@ -71,3 +71,17 @@ El `.env` pasó a `TEST_EVM_ADDRESS`, `TEST_EVM_SECRET_KEY`, `TEST_STELLAR_ADDRE
 ### Salida
 
 Backend de WillFolks integrado con `tilcai-sdk` (instalado desde el tarball de `npm pack`): faucet y depósitos fiat por el vault de TilcAI, `resolve`/`claim`/`reclaim` del escrow enviados por el relayer de TilcAI con el veredicto firmado por el atestador del backend, juez de IA cobrado por x402 y cuentas inteligentes. El SDK ganó `EvmRelayer`. Verificado en Monad testnet con un humo por API (escrito para esto) y con un flujo Maestro en el emulador de Android: la app firma el stake, TilcAI paga el depósito, emite la SCA y el veredicto x402 se liquida; la meta se resolvió con una transacción enviada por el relayer de TilcAI. 37 pruebas e2e del backend y 75 del SDK. Pendiente: publicar el SDK y cambiar la dependencia a `^0.1.0`; la clave de operador de TilcAI no tiene scopes de cuentas, por lo que las SCA usan una instancia local de TilcAI.
+
+## 2026-10-13T21:02:15Z · saulchoque123 · Claude Code (Sonnet 5.5)
+
+- **Sesión:** https://claude.ai/code/session_01FL1WLWxeWuu3Apnn184CXF
+- **Rama:** main
+- **Repositorios:** tilcai-sdk (publicado en GitHub)
+
+### Prompt
+
+> genial, antes sube el sdk a la organizacion de github creando un nuevo repo mediante gh-cli o el mcp
+
+### Salida
+
+Repositorio público https://github.com/TilcAI/tilcai-sdk creado con gh y publicado en `main` (sin secretos: comprobado contra los valores de los `.env` locales; `results/`, `dist/` y `node_modules/` ignorados). El primer CI falló porque `node --test` no expande globs en Node 18/20: el script de pruebas lista los archivos y `engines` pasa a >=20 (viem necesita `crypto` global). CI en verde en Node 20 y 22.
