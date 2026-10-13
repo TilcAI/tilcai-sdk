@@ -1,0 +1,112 @@
+{
+  "name": "tilcai-sdk",
+  "version": "0.1.0",
+  "description": "SDK de Node.js para TilcAI: pagos USDC crosschain (CCTP V2) desde Avalanche y Monad hacia Stellar, emisión de cuentas inteligentes (SCA), x402, vault de desembolsos y monitorización",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./x402": {
+      "import": {
+        "types": "./dist/x402.d.ts",
+        "default": "./dist/x402.js"
+      },
+      "require": {
+        "types": "./dist/x402.d.cts",
+        "default": "./dist/x402.cjs"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/core.d.cts",
+        "default": "./dist/core.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc -p .",
+    "test": "tsx --test \"test/**/*.test.ts\"",
+    "live": "tsx scripts/live-check.ts",
+    "smoke": "node scripts/smoke-dist.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build && npm run smoke",
+    "e2e:wallet": "tsx scripts/wallet-e2e.ts",
+    "e2e:sca": "tsx scripts/sca-e2e.ts"
+  },
+  "peerDependencies": {
+    "@stellar/stellar-sdk": ">=14.0.0",
+    "viem": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@stellar/stellar-sdk": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@stellar/stellar-sdk": "17.2.1",
+    "@types/node": "24.10.1",
+    "tsup": "8.5.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "viem": "2.57.2"
+  },
+  "keywords": [
+    "tilcai",
+    "usdc",
+    "cctp",
+    "circle",
+    "crosschain",
+    "avalanche",
+    "monad",
+    "stellar",
+    "soroban",
+    "x402",
+    "smart-account",
+    "passkey",
+    "webauthn",
+    "payments",
+    "agentic-commerce"
+  ],
+  "license": "MIT",
+  "author": "Saul Choque <saulchoque123@gmail.com>",
+  "homepage": "https://github.com/TilcAI/tilcai-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TilcAI/tilcai-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TilcAI/tilcai-sdk/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

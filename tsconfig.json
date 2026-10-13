@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022"
+    ],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "tilcai-sdk": [
+        "./src/index.ts"
+      ],
+      "tilcai-sdk/x402": [
+        "./src/x402/index.ts"
+      ],
+      "tilcai-sdk/core": [
+        "./src/core/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "test",
+    "scripts",
+    "examples",
+    "tsup.config.ts"
+  ]
+}
